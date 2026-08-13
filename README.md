@@ -1,44 +1,18 @@
-# 🚬 Smoking Detection Using Deep Learning (CNN)
+# Smoker Detection (CNN / Transfer Learning)
 
-This project aims to **detect whether a person is a smoker or non-smoker** based on facial images using a pretrained deep learning model. The dataset was collected from **Kaggle**, processed, and used to train a **transfer learning-based CNN model (InceptionResNetV2)**.
+An image classification exploration: detecting smoker vs. non-smoker from facial images using a transfer-learning CNN (InceptionResNetV2) on a Kaggle dataset.
 
----
+## Approach
 
-## 📂 Project Structure
+- Dataset split 80/20 into train/validation, organized into `Smoker` / `Non-Smoker` classes
+- Faces cropped from source images before training (`roi_dataset`)
+- InceptionResNetV2 (ImageNet weights) as a frozen feature extractor with a classification head trained on top
+- Evaluated with scikit-learn metrics
 
-├── DATA SET # Original dataset (Kaggle)
-├── original_images # Split dataset (train/val)
-├── roi_dataset # Face cropped dataset
-├── model_training.py # Model training script
-├── README.md # Project documentation
+## Tech Stack
 
-yaml
-Copy code
+TensorFlow/Keras, OpenCV, scikit-learn, Python.
 
----
+## Status
 
-## 🛠️ Tech Stack
-
-| Component | Technology |
-|----------|-------------|
-| Framework | TensorFlow / Keras |
-| Model | InceptionResNetV2 |
-| Image Processing | OpenCV |
-| Metrics | Scikit-learn |
-| Language | Python |
-
----
-
-## 📊 Workflow Overview
-
-### 1️⃣ Dataset Split
-- Original dataset was divided into **train (80%)** and **validation (20%)**
-- Labels organized into:
-  - `Smoker`
-  - `Non-Smoker`
-
-```python
-split_ratio = 0.8
-for split in ['train', 'val']:
-    for class_name in ['Smoker', 'Non-Smoker']:
-        os.makedirs(...)
+The training notebook itself isn't currently in this repo — only the write-up and one output image survived. Worth re-adding the notebook before pointing anyone here, since right now there's no runnable code to show.
